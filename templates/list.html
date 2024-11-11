@@ -1,15 +1,15 @@
 {% extends "layout.html" %}
 {% block title %}
-List All Students
+Listar todos os Clientes
 {% endblock %}
 {% block content %}
 <table border="1px">
     <thead>
-        <td><strong>Student ID</strong></td>
-        <td><strong>Name</strong></td>
-        <td><strong>Address</strong></td>
-        <td><strong>City</strong></td>
-        <td><strong>Zip</strong></td>
+        <td><strong>Cliente ID</strong></td>
+        <td><strong>Nome</strong></td>
+        <td><strong>Endereço</strong></td>
+        <td><strong>Cidade</strong></td>
+        <td><strong>Cep</strong></td>
         <td></td>
         <td></td>
     </thead>
@@ -23,12 +23,12 @@ List All Students
         <td>{{ row["zip"] }}</td>
         <td>
             <form action="{{url_for('edit')}}" method="POST"><input type="hidden" name="id"
-                    value="{{ row['rowid'] }}"><input type="submit" value="Edit"></form>
+                    value="{{ row['rowid'] }}"><input type="submit" value="Editar"></form>
         </td>
         <td>
-            <form onsubmit="return confirm('Are you sure you want to DELETE this Student from the Database?');"
+            <form onsubmit="return confirm('Tem certeza que deseja excluir o cliente?');"
                 action="{{url_for('delete')}}" method="POST"><input type="hidden" name="id"
-                    value="{{ row['rowid'] }}"><input type="submit" value="Delete"></form>
+                    value="{{ row['rowid'] }}"><input type="submit" value="Apagar"></form>
         </td>
     </tr>
     {% endfor %}

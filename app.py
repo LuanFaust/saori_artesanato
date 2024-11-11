@@ -18,7 +18,7 @@ def home():
 # Route to form used to add a new student to the database
 @app.route("/enternew")
 def enternew():
-    return render_template("student.html")
+    return render_template("cliente.html")
 
 # Route to add a new record (INSERT) student data to the database
 @app.route("/addrec", methods = ['POST', 'GET'])
@@ -37,10 +37,10 @@ def addrec():
                 cur.execute("INSERT INTO students (name, addr, city, zip) VALUES (?,?,?,?)",(nm, addr, city, zip))
 
                 con.commit()
-                msg = "Record successfully added to database"
+                msg = "Cliente Adicionado com sucesso"
         except:
             con.rollback()
-            msg = "Error in the INSERT"
+            msg = "Erro ao inserir o cliente"
 
         finally:
             con.close()
@@ -104,10 +104,10 @@ def editrec():
                 cur.execute("UPDATE students SET name='"+nm+"', addr='"+addr+"', city='"+city+"', zip='"+zip+"' WHERE rowid="+rowid)
 
                 con.commit()
-                msg = "Record successfully edited in the database"
+                msg = "Cliente Editado com Sucesso"
         except:
             con.rollback()
-            msg = "Error in the Edit: UPDATE students SET name="+nm+", addr="+addr+", city="+city+", zip="+zip+" WHERE rowid="+rowid
+            msg = "Erro ao editar: UPDATE students SET name="+nm+", addr="+addr+", city="+city+", zip="+zip+" WHERE rowid="+rowid
 
         finally:
             con.close()
@@ -127,10 +127,10 @@ def delete():
                     cur.execute("DELETE FROM students WHERE rowid="+rowid)
 
                     con.commit()
-                    msg = "Record successfully deleted from the database"
+                    msg = "Cliente Deletado com Sucesso"
         except:
             con.rollback()
-            msg = "Error in the DELETE"
+            msg = "Erro ao deletar o cliente"
 
         finally:
             con.close()
