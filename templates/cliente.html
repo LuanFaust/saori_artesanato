@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block title %}
-Add New Student
+Adicionar novo Cliente
 {% endblock %}
 {% block content %}
         <form action="{{ url_for('addrec') }}" method="POST">
@@ -17,6 +17,6 @@ Add New Student
             CEP<br>
             <input type="text" name="zip" /><br>
 
-            <input type="submit" value="Submit" /><br>
+            <input type="submit" value="Enviar" /><br>
         </form>
 {% endblock %}
